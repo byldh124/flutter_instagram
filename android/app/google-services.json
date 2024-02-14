@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "11162248886",
+    "project_id": "fluuter-1aadd",
+    "storage_bucket": "fluuter-1aadd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11162248886:android:cf04112350d16f65bce817",
+        "android_client_info": {
+          "package_name": "com.example.fl_insta_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "11162248886-1lsegm6ijjlj723r38upo42fr4bqsvl8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fl_insta_clone",
+            "certificate_hash": "b21b38dee8349bcfef2d487e52baf3f92ff94ae0"
+          }
+        },
+        {
+          "client_id": "11162248886-36lrglkal1ek7ndgefe8i7f66trm4c24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDetgfpnSAAXUL4r9RuFhc8UM0JxH8I_aU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "11162248886-36lrglkal1ek7ndgefe8i7f66trm4c24.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "11162248886-5futar5uv4ungb6bmnl3ejlco5oii97g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flInstaClone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
