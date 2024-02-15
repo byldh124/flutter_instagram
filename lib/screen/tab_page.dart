@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fl_insta_clone/screen/search_page.dart';
 import 'package:flutter/material.dart';
 
@@ -5,7 +6,9 @@ import 'account_page.dart';
 import 'home_page.dart';
 
 class TabPage extends StatefulWidget {
-  TabPage({super.key});
+  final User user;
+
+  const TabPage({super.key, required this.user});
 
   @override
   State<TabPage> createState() => _TabPageState();
@@ -13,15 +16,16 @@ class TabPage extends StatefulWidget {
 
 class _TabPageState extends State<TabPage> {
   int _selectedIndex = 0;
+
   late List _pages;
 
   @override
   void initState() {
     super.initState();
     _pages = [
-      HomePage(),
-      SearchPage(),
-      AccountPage(),
+      HomePage(user: widget.user),
+      SearchPage(user: widget.user),
+      AccountPage(user: widget.user),
     ];
   }
 

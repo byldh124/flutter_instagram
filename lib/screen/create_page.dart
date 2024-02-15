@@ -1,12 +1,14 @@
 import 'dart:io';
-
-//import 'package:cloud_firestore/cloud_firestore.dart';
-//import 'package:firebase_storage/firebase_storage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class CreatePage extends StatefulWidget {
-  const CreatePage({super.key});
+  final User user;
+
+  const CreatePage({super.key, required this.user});
 
   @override
   State<CreatePage> createState() => _CreatePageState();
@@ -30,18 +32,18 @@ class _CreatePageState extends State<CreatePage> {
       body: _buildBody(),
       floatingActionButton: FloatingActionButton(
         onPressed: getImage,
-        child: Icon(Icons.add_a_photo),
+        child: const Icon(Icons.add_a_photo),
       ),
     );
   }
 
   AppBar _buildAppBar() {
     return AppBar(
-      actions: [IconButton(onPressed: () {}, icon: Icon(Icons.send))],
+      actions: [IconButton(onPressed: send, icon: const Icon(Icons.send))],
     );
   }
 
-  /*Future<void> send() async {
+  Future<void> send() async {
     if (_image != null) {
       final firebaseStorageRef = FirebaseStorage.instance
           .ref()
@@ -59,20 +61,22 @@ class _CreatePageState extends State<CreatePage> {
         'id': doc.id,
         'photoUrl': uri.toString(),
         'contents': textEditingController.text,
-        //'email' : widget.user.currentUser?.email,
-        //'displayName' : widget.user.currentUser?.displayName,
-        //'userPhotoUrl' : widget.user.currentUser?.photoURL,
-      }).then((value) => {Navigator.pop(context)});
+        'email': widget.user.email,
+        'displayName': widget.user.displayName,
+        'userPhotoUrl': widget.user.photoURL,
+      }).then((_) {
+        Navigator.pop(context);
+      });
     }
-  }*/
+  }
 
   Widget _buildBody() {
     return SingleChildScrollView(
       child: Column(
         children: [
-          _image == null ? Text('No Image') : Image.file(_image!),
+          _image == null ? const Text('No Image') : Image.file(_image!),
           TextField(
-            decoration: InputDecoration(hintText: '내용을 입력하세요.'),
+            decoration: const InputDecoration(hintText: '내용을 입력하세요.'),
             controller: textEditingController,
           )
         ],

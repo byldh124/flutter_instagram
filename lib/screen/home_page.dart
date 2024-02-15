@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final User user;
+
+  const HomePage({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -46,15 +49,16 @@ class HomePage extends StatelessWidget {
                           height: 80,
                           child: CircleAvatar(
                             backgroundImage: NetworkImage(
-                                'https://dimg.donga.com/wps/SPORTS/IMAGE/2023/10/16/121685695.1.jpg'),
+                              user.photoURL ?? 'https://dimg.donga.com/wps/SPORTS/IMAGE/2023/10/16/121685695.1.jpg',
+                            ),
                           ),
                         ),
                         Padding(padding: EdgeInsets.all(16)),
                         Text(
-                          '이메일 주소',
+                          user.email ?? "이메일",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        Text('이름'),
+                        Text(user.displayName ?? "사용자 이름"),
                         Padding(padding: EdgeInsets.all(16)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -63,21 +67,27 @@ class HomePage extends StatelessWidget {
                               width: 70,
                               height: 70,
                               child: Image.network(
-                                  'https://dimg.donga.com/wps/SPORTS/IMAGE/2023/10/16/121685695.1.jpg',fit: BoxFit.cover,),
+                                'https://dimg.donga.com/wps/SPORTS/IMAGE/2023/10/16/121685695.1.jpg',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             Padding(padding: EdgeInsets.all(1)),
                             SizedBox(
                               width: 70,
                               height: 70,
                               child: Image.network(
-                                  'https://dimg.donga.com/wps/SPORTS/IMAGE/2023/10/16/121685695.1.jpg',fit: BoxFit.cover,),
+                                'https://dimg.donga.com/wps/SPORTS/IMAGE/2023/10/16/121685695.1.jpg',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             Padding(padding: EdgeInsets.all(1)),
                             SizedBox(
                               width: 70,
                               height: 70,
                               child: Image.network(
-                                  'https://dimg.donga.com/wps/SPORTS/IMAGE/2023/10/16/121685695.1.jpg',fit: BoxFit.cover,),
+                                'https://dimg.donga.com/wps/SPORTS/IMAGE/2023/10/16/121685695.1.jpg',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ],
                         ),

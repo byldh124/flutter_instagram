@@ -12,7 +12,6 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('signonPress');
     return Scaffold(
       body: Center(
         child: Column(
@@ -24,7 +23,6 @@ class LoginPage extends StatelessWidget {
             ),
             Padding(padding: EdgeInsets.all(50)),
             SignInButton(
-
               Buttons.Google,
               onPressed: () {
                 _handleSignin().then((value) => {
