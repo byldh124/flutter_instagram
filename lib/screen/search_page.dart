@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fl_insta_clone/screen/detail_post_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -64,9 +65,21 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   Widget _buildListItem(BuildContext context, document) {
-    return Image.network(
-      document['photoUrl'],
-      fit: BoxFit.cover,
+    return Hero(
+      tag: document['photoUrl'],
+      child: Material(
+        child: InkWell(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return DetailPostPage(document: document);
+            }));
+          },
+          child: Image.network(
+            document['photoUrl'],
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
     );
   }
 }

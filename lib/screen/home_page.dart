@@ -96,12 +96,12 @@ class HomePage extends StatelessWidget {
                         Padding(padding: EdgeInsets.all(4)),
                         ElevatedButton(
                           onPressed: () {},
-                          child: Text(
-                            '팔로우',
-                          ),
                           style: ButtonStyle(
                               backgroundColor:
                                   MaterialStateProperty.all(Colors.blueAccent)),
+                          child: const Text(
+                            '팔로우',
+                          ),
                         ),
                         Padding(padding: EdgeInsets.all(4)),
                       ],
